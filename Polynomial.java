@@ -6,8 +6,10 @@ class Polynomial {
     private int[] exp;
 
     Polynomial() {
-        coef = new double[0];
-        exp = new int[0];
+        coef = new double[1];
+        exp = new int[1];
+        coef[0]=0;
+        exp[0]=0;
     }
 
     Polynomial(double[] coef, int[] exp) {
