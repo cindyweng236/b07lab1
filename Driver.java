@@ -1,4 +1,4 @@
-
+import java.io.*;
 public class Driver {
     public static void main(String[] args) {
         Polynomial emptyP = new Polynomial();
@@ -31,5 +31,10 @@ public class Driver {
         p.saveToFile("~\\Desktop\\CSCB07\\testPolynomial.txt");
         product.saveToFile("~\\Desktop\\CSCB07\\testPolynomial.txt");
         sum.saveToFile("~\\Desktop\\CSCB07\\testPolynomial.txt");
+
+        File f = new File("testInput.txt");
+        boolean exist = f.exists();
+        Polynomial testInput = new Polynomial(f);
+
     }
 }
