@@ -125,16 +125,30 @@ class Polynomial {
 
         //return the new Polynomial
         int usedLen = lastValidIndex+1; 
-        int[] newExp = new int[usedLen];
-        double[] newCoef = new double[usedLen];
-        if(usedLen == longestPossibleLen){
+        boolean[] nonZero = new boolean[usedLen];
+        int actualLen = usedLen;
+        for(int i=0; i<usedLen; i++){
+            if(tempCoef[i]==0){
+                nonZero[i]=false;
+                usedLen--;
+            }else{
+                nonZero[i]=true;
+            }
+        }
+        int[] newExp = new int[actualLen];
+        double[] newCoef = new double[actualLen];
+        if(actualLen == longestPossibleLen){
             newExp = tempExp;
             newCoef = tempCoef;
         }
         else{
+            int count = 0;
             for(int i=0; i<usedLen; i++){
-                newExp[i]=tempExp[i];
-                newCoef[i] = tempExp[i];
+                if(!nonZero[i]){
+                    continue;
+                }
+                newExp[count] = tempExp[i];
+                newCoef[count] = tempCoef[i];
             }
         }
 
